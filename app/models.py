@@ -15,7 +15,6 @@ class Region(Base):
     region_code = Column(String(50), primary_key=True, index=True)
     region_name = Column(String(100))
     cities = relationship("City", back_populates="region")
-
 class City(Base):
     __tablename__ = 'cities'
     city_code = Column(String(50), primary_key=True, index=True)
@@ -23,6 +22,7 @@ class City(Base):
     region_code = Column(String(50), ForeignKey('regions.region_code'))
     region = relationship("Region", back_populates="cities")
     warehouses = relationship("Warehouse", back_populates="city")
+
 
 class Warehouse(Base):
     __tablename__ = 'warehouses'

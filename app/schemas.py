@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-
+from typing import Optional
 class ProductBase(BaseModel):
     product_code: str
     product_name: str
@@ -26,7 +26,7 @@ class Region(RegionBase):
 class CityBase(BaseModel):
     city_code: str
     city_name: str
-    region_code: str
+    region_code: Optional[str] #null olabilir!
 
 class CityCreate(CityBase):
     pass
@@ -34,6 +34,7 @@ class CityCreate(CityBase):
 class City(CityBase):
     class Config:
         orm_mode = True
+
 
 
 class WarehouseBase(BaseModel):

@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from io import BytesIO
 import pandas as pd
 from app.database import get_db
-from app.models import Product
+from app.models import Product, Inventory
 from app.schemas import Product as ProductSchema, ProductCreate
 
 router = APIRouter()
@@ -50,13 +50,13 @@ async def create_product(product: ProductCreate, db: Session = Depends(get_db)):
     return db_product
 
 
-@router.get("/products/", response_model=List[ProductSchema])
+@router.get("/", response_model=List[ProductSchema])
 async def get_products(db: Session = Depends(get_db)):
     products = db.query(Product).all()
     return products
 
 
-@router.get("/product/{product_code}", response_model=ProductSchema)
+@router.get("/{product_code}", response_model=ProductSchema)
 async def get_product(product_code: str, db: Session = Depends(get_db)):
     product = db.query(Product).filter_by(product_code=product_code).first()
     if not product:
@@ -66,6 +66,7 @@ async def get_product(product_code: str, db: Session = Depends(get_db)):
 
 @router.delete("/delete/{product_code}")
 async def delete_product(product_code: str, db: Session = Depends(get_db)):
+    db.query(Inventory).filter(Inventory.product_code == product_code).delete(synchronize_session=False)
     product = db.query(Product).filter_by(product_code=product_code).first()
     if not product:
         raise HTTPException(status_code=404, detail="Product not found.")
