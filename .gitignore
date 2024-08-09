@@ -1,0 +1,14 @@
+app/__pycache__/__init__.cpython-38.pyc
+app/__pycache__/database.cpython-38.pyc
+app/__pycache__/main.cpython-38.pyc
+app/__pycache__/models.cpython-38.pyc
+app/__pycache__/schemas.cpython-38.pyc
+app/routers/__pycache__/__init__.cpython-38.pyc
+app/routers/__pycache__/cities.cpython-38.pyc
+app/routers/__pycache__/inventory.cpython-38.pyc
+app/routers/__pycache__/products.cpython-38.pyc
+app/routers/__pycache__/warehouses.cpython-38.pyc
+app/routers/__pycache__/regions.cpython-38.pyc
+app/data/firma_stok_31.XML
+app/data/output.xlsx
+app/data/testData.xlsx
