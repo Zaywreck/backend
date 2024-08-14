@@ -39,6 +39,7 @@ class Inventory(Base):
     product_code = Column(String, ForeignKey('products.product_code'))
     warehouse_code = Column(String, ForeignKey('warehouses.warehouse_code'))
     quantity = Column(Integer)
+    timestamp = Column(TIMESTAMP)
 
     warehouse = relationship("Warehouse", back_populates="inventory")
 
@@ -50,3 +51,4 @@ class WeeklyData(Base):
     quantity = Column(Integer)
     unit_price = Column(Float)
     timestamp = Column(TIMESTAMP)
+

@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from app.models import Base, Region, City, Warehouse, Product, Inventory, WeeklyData, RequestPoint
+from app.models import Base, Region, City, Warehouse, Product, Inventory, WeeklyData,
 
 DATABASE_URL = "mysql+pymysql://zaywreck:Zaywreck6378.@localhost/warehouse_management"
 engine = create_engine(DATABASE_URL)

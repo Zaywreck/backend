@@ -1,5 +1,16 @@
+from datetime import datetime
+
 from pydantic import BaseModel
-from typing import Optional
+from typing import List, Generic, TypeVar,Optional
+
+T = TypeVar('T')
+
+class PaginatedResponse(BaseModel, Generic[T]):
+    total_count: int
+    page: int
+    page_size: int
+    data: List[T]
+
 class ProductBase(BaseModel):
     product_code: str
     product_name: str
@@ -55,7 +66,7 @@ class InventoryBase(BaseModel):
     product_code: str
     warehouse_code: str
     quantity: int
-    timestamp: str  # Use ISO format for timestamps
+    timestamp: datetime  # Use ISO format for timestamps
 
 class InventoryCreate(InventoryBase):
     pass
