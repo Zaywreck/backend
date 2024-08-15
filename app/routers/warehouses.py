@@ -2,8 +2,8 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List
 from app.database import get_db
-from app.models import Warehouse, Inventory
-from app.schemas import Warehouse as WarehouseSchema, WarehouseCreate
+from app.default.models import Warehouse, Inventory
+from app.default.schemas import Warehouse as WarehouseSchema, WarehouseCreate
 
 router = APIRouter()
 

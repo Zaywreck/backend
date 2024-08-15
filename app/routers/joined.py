@@ -3,8 +3,8 @@ from typing import List
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.database import get_db
-from app.models import Inventory, Warehouse, Product
-from app.schemas import Inventory as InventorySchema
+from app.default.models import Inventory, Warehouse, Product
+from app.default.schemas import Inventory as InventorySchema
 
 router = APIRouter()
 

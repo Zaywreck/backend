@@ -5,8 +5,8 @@ from jose import JWTError, jwt
 from datetime import datetime, timedelta
 from fastapi.security import OAuth2PasswordBearer
 
-from app import auth_schema, database, auth_model
-from app.auth_schema import Token
+from app import auth_model
+from app.auth import auth_schema
 from app.database import get_db
 from app.utils.security import verify_api_key
 

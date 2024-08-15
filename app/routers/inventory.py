@@ -6,8 +6,8 @@ from fastapi.logger import logger
 from sqlalchemy.orm import Session
 from sqlalchemy import or_, text, delete
 from typing import List, Optional
-from app.models import Product, Warehouse, Inventory, City
-from app.schemas import InventoryCreate, Inventory as InventorySchema, PaginatedResponse
+from app.default.models import Product, Warehouse, Inventory, City
+from app.default.schemas import InventoryCreate, Inventory as InventorySchema, PaginatedResponse
 from app.database import get_db
 
 router = APIRouter()

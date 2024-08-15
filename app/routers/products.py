@@ -4,8 +4,8 @@ from sqlalchemy.orm import Session
 from io import BytesIO
 import pandas as pd
 from app.database import get_db
-from app.models import Product, Inventory
-from app.schemas import Product as ProductSchema, ProductCreate
+from app.default.models import Product, Inventory
+from app.default.schemas import Product as ProductSchema, ProductCreate
 
 router = APIRouter()
 

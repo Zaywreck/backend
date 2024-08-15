@@ -2,8 +2,8 @@ from typing import List
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.database import get_db
-from app.models import City
-from app.schemas import City as CitySchema, CityCreate
+from app.default.models import City
+from app.default.schemas import City as CitySchema, CityCreate
 
 router = APIRouter()
 
