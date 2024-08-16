@@ -100,6 +100,7 @@ def verify_api_key(api_key: str = Header(...)):
 
 @router.get("/me", response_model=auth_schema.UserResponse)
 def get_current_user_info(current_user: auth_model.User = Depends(get_current_user)):
+    print("auth check: "+ str(datetime.now()))
     return current_user
 
 @router.post("/logout")

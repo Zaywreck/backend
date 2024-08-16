@@ -1,14 +1,10 @@
-from pydantic import BaseModel
-from datetime import datetime
+from typing import Optional
+from app.default.schemas import InventoryBase
 
-class JoinedInventoryResponse(BaseModel):
-    inventory_code: str
-    product_code: str
+class JoinedInventoryResponse(InventoryBase):
     product_name: str
-    warehouse_code: str
     warehouse_name: str
-    quantity: int
-    timestamp: datetime
+    average_consumption: Optional[float]  # Should be Optional in case no average is found
 
     class Config:
         orm_mode = True

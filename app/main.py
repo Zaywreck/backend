@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import products, warehouses, cities, inventory, regions, auth,joined
+from app.routers import products, warehouses, cities, inventory, regions, auth,joined, average_consumption
 
 app = FastAPI()
 
@@ -21,3 +21,4 @@ app.include_router(inventory.router, prefix="/inventory", tags=["Inventory"])
 app.include_router(regions.router, prefix="/regions", tags=["Regions"])
 app.include_router(auth.router, prefix="/auth", tags=["Auth"])
 app.include_router(joined.router, prefix="/joined", tags=["joined"])
+app.include_router(average_consumption.router, prefix="/average", tags=["average"])

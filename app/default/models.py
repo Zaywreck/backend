@@ -43,12 +43,11 @@ class Inventory(Base):
 
     warehouse = relationship("Warehouse", back_populates="inventory")
 
-class WeeklyData(Base):
-    __tablename__ = 'weekly_data'
-    weekly_data_code = Column(String(50), primary_key=True, index=True)
+class YearlyAverageConsumption(Base):
+    __tablename__ = 'yearly_average_consumption'
+    id = Column(Integer, primary_key=True, index=True)
     product_code = Column(String(50), ForeignKey('products.product_code'))
-    warehouse_code = Column(String(50), ForeignKey('warehouses.warehouse_code'))
-    quantity = Column(Integer)
-    unit_price = Column(Float)
-    timestamp = Column(TIMESTAMP)
+    average_usage = Column(Float)
+    year = Column(Integer)  # Store the year for which the average is applicable
 
+    product = relationship("Product")

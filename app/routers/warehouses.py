@@ -30,7 +30,6 @@ async def create_warehouse(warehouse: WarehouseCreate, db: Session = Depends(get
     db.refresh(db_warehouse)
     return db_warehouse
 
-
 @router.put("/update/{warehouse_code}", response_model=WarehouseResponse)
 async def update_warehouse(warehouse_code: str, warehouse: WarehouseCreate, db: Session = Depends(get_db)):
     # Convert to string if necessary
@@ -66,3 +65,6 @@ async def delete_warehouse(warehouse_code: str, db: Session = Depends(get_db)):
     db.delete(warehouse)
     db.commit()
     return {"message": "Warehouse deleted successfully"}
+
+
+
